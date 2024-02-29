@@ -54,7 +54,8 @@ def getOpenAIresponse(pageText):
     ]
     )
 
-    return (completion.choices[0].message)
+    return (completion.choices[0].message.content)
+    
 
 
 

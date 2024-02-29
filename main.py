@@ -32,8 +32,8 @@ def home():
             paragraphs = soup.find_all('body')
             extracted_text = '\n'.join([p.get_text() for p in paragraphs])
             summarize_text = getOpenAIresponse(extracted_text)
-            print("here's the summary")
-            print(summarize_text)
+            #print("here's the summary")
+            #print(summarize_text)
             
             # Display extracted text in preformatted text
             return f'<p>{summarize_text}</p>'

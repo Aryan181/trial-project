@@ -17,5 +17,8 @@ EXPOSE 3000
 ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
+
+COPY .env /app/.env
+
 # Run main.py when the container launches
 CMD ["python", "main.py", "flask", "run"]

@@ -36,7 +36,7 @@ def home():
             print(summarize_text)
             
             # Display extracted text in preformatted text
-            return f'<pre>{extracted_text}</pre>'
+            return f'<p>{summarize_text}</p>'
         except requests.exceptions.RequestException as e:
             return f'Error fetching the URL: {e}'
     else:

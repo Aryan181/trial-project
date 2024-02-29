@@ -13,9 +13,10 @@ def home():
             soup = BeautifulSoup(response.text, 'html.parser')
             
             # Example: Extract all paragraph texts
-            paragraphs = soup.find_all('p')
+            paragraphs = soup.find_all('body')
             extracted_text = '\n'.join([p.get_text() for p in paragraphs])
-            print(paragraphs)
+             
+            print("this is the extracted text")
             print(extracted_text)
             # Display extracted text in preformatted text
             return f'<pre>{extracted_text}</pre>'

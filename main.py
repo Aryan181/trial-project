@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import requests
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -9,7 +10,15 @@ def home():
         url = request.form['url']
         try:
             response = requests.get(url)
-            return f'<pre>{response.text}</pre>'  # Display content in preformatted text
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Example: Extract all paragraph texts
+            paragraphs = soup.find_all('p')
+            extracted_text = '\n'.join([p.get_text() for p in paragraphs])
+            print(paragraphs)
+            print(extracted_text)
+            # Display extracted text in preformatted text
+            return f'<pre>{extracted_text}</pre>'
         except requests.exceptions.RequestException as e:
             return f'Error fetching the URL: {e}'
     else:

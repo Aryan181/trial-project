@@ -17,8 +17,11 @@ EXPOSE 3000
 ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
-
+# Copy .env file
 COPY .env /app/.env
 
-# Run main.py when the container launches
-CMD ["python", "main.py", "flask", "run"]
+# Expose port 3000 for the application
+EXPOSE 3000
+
+# Command to run the Flask application
+CMD ["python", "main.py"]
